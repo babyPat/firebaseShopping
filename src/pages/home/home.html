@@ -1,14 +1,48 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+<!--
+  Generated template for the HomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header  >
+
+  <ion-navbar color="chocolate" >
+    <ion-title>Shopping List</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+<ion-content class="theme">
+
+    <div class="dee">
+    <ion-row >
+        <ion-col col-9>
+          <ion-item>
+          <ion-input type="text" [(ngModel)]="name" placeholder="Enter Item"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+         <button ion-button (click)="writeCuisine()" color="chocolate">Add</button>
+        </ion-col>
+      </ion-row> <br>
+    </div>
+ 
+
+<ion-list>
+  <ion-item-sliding *ngFor="let item of retrievedItems" >
+    <ion-item class="me">
+      {{item.name}}
+    </ion-item>
+    <ion-item-options side="left">
+      <button ion-button (click)="delete(item.keyName)" color="danger">delete</button>
+      <button ion-button (click)="update(item.keyName)">update</button>
+     
+    </ion-item-options>
+<!-- 
+    <ion-item-options side="right">
+      <button ion-button (click)="unread(item)">Unread</button>
+    </ion-item-options> -->
+  </ion-item-sliding>
+</ion-list>
 </ion-content>
